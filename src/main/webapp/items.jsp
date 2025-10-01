@@ -14,6 +14,7 @@ out.println("Password: " + password);
 <button type="button"><%= buttonLabel1 %></button>
 <%
     String buttonLabel2 = "View Shopping Cart";
+
 %>
 <button type="button"><%= buttonLabel2 %></button>
 </body>

@@ -2,7 +2,7 @@ package com.kth.BO;
 
 import java.util.ArrayList;
 
-public class User {
+public class  User {
     private final String username;
     private final String password;
     private final int id;
