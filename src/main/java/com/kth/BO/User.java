@@ -4,12 +4,14 @@ import java.util.ArrayList;
 
 public class User {
     private final String username;
+    private final String password;
     private final int id;
     private ArrayList<Item> shoppingCart;
 
 
-    public User(String username, int id) {
+    public User(String username, String password, int id) {
         this.username = username;
+        this.password = password;
         this.id = id;
         this.shoppingCart = new ArrayList<Item>();
     }

@@ -3,12 +3,10 @@ package com.kth.UI;
 public class ItemInfo {
     private String name;
     private String type;
-    private int cost;
 
-    public ItemInfo(String name, String type, int cost) {
+    public ItemInfo(String name, String type) {
         this.name = name;
         this.type = type;
-        this.cost = cost;
     }
 
     public String getName() {
@@ -27,11 +25,4 @@ public class ItemInfo {
         this.type = type;
     }
 
-    public int getCost() {
-        return cost;
-    }
-
-    public void setCost(int cost) {
-        this.cost = cost;
-    }
 }
