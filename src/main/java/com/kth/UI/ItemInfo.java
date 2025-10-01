@@ -1,28 +1,30 @@
 package com.kth.UI;
 
 public class ItemInfo {
-    private String name;
-    private String type;
+    private String title;
+    private String genre;
+    private double price;
 
-    public ItemInfo(String name, String type) {
-        this.name = name;
-        this.type = type;
+    public ItemInfo(String genre, String title, double price) {
+        this.title = title;
+        this.genre = genre;
+        this .price = price;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getType() {
-        return type;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
 }

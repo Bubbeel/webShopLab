@@ -38,4 +38,7 @@ public class DBManager extends HttpServlet {
         }
     }
 
+    public static Connection getConnection(){
+        return getInstance().con;
+    }
 }

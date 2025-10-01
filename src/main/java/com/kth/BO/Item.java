@@ -1,36 +1,23 @@
 package com.kth.BO;
 
 import java.util.Collection;
+import com.kth.DB.ItemDB;
 
 public class Item {
-    private String name;
-    private String type;
     private int id;
+    private String title;
+    private String genre;
+    private double price;
 
-    protected Item(String name, String type, int id) {
-        this.name = name;
-        this.type = type;
+    protected Item(int id, String title, String genre, double price) {
         this.id = id;
+        this.title = title;
+        this.genre = genre;
+        this.price = price;
     }
 
     public static Collection searchItems(String group) {
-        return null;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+        return ItemDB.searchItems(group);
     }
 
     public int getId() {
@@ -39,5 +26,29 @@ public class Item {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public double getPrice(){
+        return price;
+    }
+
+    public void setPrice(double price){
+        this.price = price;
     }
 }
