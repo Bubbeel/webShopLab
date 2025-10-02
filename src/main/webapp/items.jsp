@@ -1,12 +1,10 @@
 
 <html>
+
 <%@ page import="java.io.*, java.util.*" %>
 <body>
-<% String username = request.getParameter("username");
-String password = request.getParameter("password");
-%>
-<%out.println("Username: " + username);
-out.println("Password: " + password);
+<%out.println("Username: " + request.getParameter("username"));
+out.println("Password: " + request.getParameter("password"));
 %>
 <%
     String buttonLabel1 = " Add to Shopping Cart";
