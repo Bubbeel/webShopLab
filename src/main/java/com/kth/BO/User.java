@@ -1,5 +1,7 @@
 package com.kth.BO;
 
+import com.kth.DB.UserDB;
+
 import java.util.ArrayList;
 
 public class  User {
@@ -7,7 +9,6 @@ public class  User {
     private final String password;
     private final int id;
     private ArrayList<Item> shoppingCart;
-
 
     public User(String username, String password, int id) {
         this.username = username;
@@ -30,6 +31,19 @@ public class  User {
             for (Item item : shoppingCart) {
                 System.out.println("- " + item);
             }
+        }
+    }
+
+    public static User authenticate(String username, String password) {
+        User dbUser = UserDB.findByUsername(username);
+        if (dbUser == null) {
+            return null;
+        }
+
+        if (dbUser.password.equals(password)) {
+            return dbUser;
+        } else {
+            return null;
         }
     }
 }
