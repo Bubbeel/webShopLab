@@ -1,5 +1,6 @@
 package com.kth.UI;
 
+import com.kth.BO.Item;
 import com.kth.BO.User;
 import com.kth.DB.ItemDB;
 import jakarta.servlet.*;
@@ -20,7 +21,7 @@ public class LoginServlet extends HttpServlet {
         User user = User.authenticate(username, password);
 
         if (user != null) {
-            user.setShoppingCart(new ArrayList<>(ItemDB.getUserShoppingCart(user.getId())));
+            user.setShoppingCart(new ArrayList<>(ItemInfo.getUserShoppingCart(user.getId())));
 
             HttpSession session = request.getSession();
             session.setAttribute("user", user);

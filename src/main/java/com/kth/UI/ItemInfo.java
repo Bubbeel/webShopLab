@@ -1,5 +1,10 @@
 package com.kth.UI;
 
+import com.kth.BO.Item;
+import com.kth.DB.ItemDB;
+
+import java.util.Collection;
+
 public class ItemInfo {
     private String title;
     private String genre;
@@ -9,6 +14,10 @@ public class ItemInfo {
         this.title = title;
         this.genre = genre;
         this .price = price;
+    }
+
+    public static Collection<Item> getUserShoppingCart(int userId) {
+        return Item.getUserShoppingCart(userId);
     }
 
     public String getTitle() {

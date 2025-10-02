@@ -12,11 +12,6 @@
 <form action="addToCart" method="post">
     <button type="submit">Add to Shopping Cart</button>
 </form>
-
-<form action="viewCart.jsp" method="get">
-    <button type="submit">View Shopping Cart</button>
-</form>
-
 <h2>Your Shopping Cart:</h2>
 <% if (cart.isEmpty()) { %>
     <p>No items in your cart.</p>

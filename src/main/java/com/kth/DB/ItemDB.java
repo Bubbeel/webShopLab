@@ -37,7 +37,7 @@ public class ItemDB extends com.kth.BO.Item {
     public static Collection<Item> getUserShoppingCart(int userId) {
         ArrayList<Item> cart = new ArrayList<>();
 
-        String query = "SELECT g.id, g.title, g.genre, g.price, ci.quantity FROM shopping_carts sc JOIN cart_items ci ON sc.cart_id = ci.cart_id JOIN games g ON ci.game_id = g.id WHERE sc.user_id = ? ";
+        String query = "SELECT g.game_id, g.title, g.genre, g.price, ci.quantity FROM shopping_carts sc JOIN cart_items ci ON sc.cart_id = ci.cart_id JOIN games g ON ci.game_id = g.game_id WHERE sc.user_id = ? ";
 
         try {
             Connection con = DBManager.getConnection();
@@ -46,7 +46,7 @@ public class ItemDB extends com.kth.BO.Item {
 
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("id");
+                int id = rs.getInt("game_id");
                 String title = rs.getString("title");
                 String genre = rs.getString("genre");
                 double price = rs.getDouble("price");
@@ -55,6 +55,9 @@ public class ItemDB extends com.kth.BO.Item {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        for (Item item : cart) {
+            System.out.println(cart.get(0));
         }
         return cart;
     }
