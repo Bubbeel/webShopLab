@@ -29,10 +29,8 @@ public class DBManager extends HttpServlet {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webshop?user=root&password=Kutas123");
-            System.out.println("Successful ig");
             yesno = true;
         } catch (Exception e) {
-            System.out.println("Failed");
             yesno = false;
             e.printStackTrace();
         }
