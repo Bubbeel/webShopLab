@@ -46,4 +46,20 @@ public class  User {
             return null;
         }
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public ArrayList<Item> getShoppingCart() {
+        return shoppingCart;
+    }
+
+    public void setShoppingCart(ArrayList<Item> shoppingCart) {
+        this.shoppingCart = shoppingCart;
+    }
 }

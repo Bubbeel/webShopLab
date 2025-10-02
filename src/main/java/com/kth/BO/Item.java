@@ -9,7 +9,7 @@ public class Item {
     private String genre;
     private double price;
 
-    protected Item(int id, String title, String genre, double price) {
+    public Item(int id, String title, String genre, double price) {
         this.id = id;
         this.title = title;
         this.genre = genre;

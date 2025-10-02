@@ -1,19 +1,32 @@
-
+<%@ page import="com.kth.BO.User, com.kth.BO.Item, java.util.ArrayList" %>
 <html>
-
-<%@ page import="java.io.*, java.util.*" %>
 <body>
-<%out.println("Username: " + request.getParameter("username"));
-out.println("Password: " + request.getParameter("password"));
-%>
 <%
-    String buttonLabel1 = " Add to Shopping Cart";
+    User user = (User) session.getAttribute("user");
+    ArrayList<Item> cart = user != null ? user.getShoppingCart() : new ArrayList<>();
 %>
-<button type="button"><%= buttonLabel1 %></button>
-<%
-    String buttonLabel2 = "View Shopping Cart";
 
-%>
-<button type="button"><%= buttonLabel2 %></button>
+<h3>Welcome, <%= user != null ? user.getUsername() : "Guest" %></h3>
+<p>Items in cart: <%= cart.size() %></p>
+
+<form action="addToCart" method="post">
+    <button type="submit">Add to Shopping Cart</button>
+</form>
+
+<form action="viewCart.jsp" method="get">
+    <button type="submit">View Shopping Cart</button>
+</form>
+
+<h2>Your Shopping Cart:</h2>
+<% if (cart.isEmpty()) { %>
+    <p>No items in your cart.</p>
+<% } else { %>
+    <ul>
+    <% for (Item item : cart) { %>
+        <li><%= item.getTitle() %> - $<%= item.getPrice() %></li>
+    <% } %>
+    </ul>
+<% } %>
+
 </body>
 </html>
