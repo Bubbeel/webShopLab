@@ -30,6 +30,7 @@ public class ItemDB extends com.kth.BO.Item {
         }
         return v;
     }
+
     protected ItemDB(int id, String title, String genre, double price) {
         super(id, title, genre, price);
     }

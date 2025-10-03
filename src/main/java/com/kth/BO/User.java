@@ -59,7 +59,7 @@ public class  User {
         return shoppingCart;
     }
 
-    public void setShoppingCart(ArrayList<Item> shoppingCart) {
-        this.shoppingCart = shoppingCart;
+    public void updateShoppingCart(String gameTitle) {
+        UserDB.updateShoppingCart(this.id, gameTitle);
     }
 }

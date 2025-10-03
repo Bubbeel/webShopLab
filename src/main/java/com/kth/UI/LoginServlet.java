@@ -21,8 +21,8 @@ public class LoginServlet extends HttpServlet {
         User user = User.authenticate(username, password);
 
         if (user != null) {
-            user.setShoppingCart(new ArrayList<>(ItemInfo.getUserShoppingCart(user.getId())));
-
+            //need to fetch game title here somehow
+            user.updateShoppingCart("Baldurs Gate 3");
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             response.sendRedirect("items.jsp");
@@ -32,3 +32,4 @@ public class LoginServlet extends HttpServlet {
         }
     }
 }
+
