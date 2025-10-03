@@ -20,8 +20,12 @@ public class Item {
         return ItemDB.searchItems(group);
     }
 
-    public static Collection<Item> getUserShoppingCart(int userId) {
+    public static Collection <Item> getUserShoppingCart(int userId) {
         return ItemDB.getUserShoppingCart(userId);
+    }
+
+    public static Collection<Item> searchItemsByName(String search) {
+        return  ItemDB.searchItemsByName(search);
     }
 
     public int getId() {

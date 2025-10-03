@@ -20,6 +20,10 @@ public class ItemInfo {
         return Item.getUserShoppingCart(userId);
     }
 
+    public static Collection<Item> searchItemsByName(String search) {
+        return  Item.searchItemsByName(search);
+    }
+
     public String getTitle() {
         return title;
     }

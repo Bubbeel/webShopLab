@@ -9,8 +9,9 @@
 <h3>Welcome, <%= user != null ? user.getUsername() : "Guest" %></h3>
 <p>Items in cart: <%= cart.size() %></p>
 
-<form action="addToCart" method="post">
-    <button type="submit">Add to Shopping Cart</button>
+<form action="search" method="get">
+    <input type="text" name="gameSearch" placeholder="Search for games!" required />
+    <button type="submit">Search</button>
 </form>
 <h2>Your Shopping Cart:</h2>
 <% if (cart.isEmpty()) { %>
