@@ -56,7 +56,7 @@ public class  User {
     }
 
     public ArrayList<Item> getShoppingCart() {
-        return shoppingCart;
+        return Item.getShoppingCartForUser(UserDB.getShoppingCart(this.id));
     }
 
     public void updateShoppingCart(String gameTitle) {

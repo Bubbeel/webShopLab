@@ -1,5 +1,6 @@
 package com.kth.BO;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import com.kth.DB.ItemDB;
 
@@ -26,6 +27,19 @@ public class Item {
 
     public static Collection<Item> searchItemsByName(String search) {
         return  ItemDB.searchItemsByName(search);
+    }
+
+    public static ArrayList<Item> getShoppingCartForUser(ArrayList<ItemDB> dbItems) {
+        ArrayList<Item> items = new ArrayList<>();
+        for (ItemDB dbItem : dbItems) {
+            items.add(new Item(
+                    dbItem.getId(),
+                    dbItem.getTitle(),
+                    dbItem.getGenre(),
+                    dbItem.getPrice()
+            ));
+        }
+        return items;
     }
 
     public int getId() {

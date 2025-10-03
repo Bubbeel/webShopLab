@@ -2,6 +2,9 @@ package com.kth.DB;
 
 import com.kth.BO.User;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Vector;
 
 public class UserDB extends com.kth.BO.User {
 
@@ -62,4 +65,36 @@ public class UserDB extends com.kth.BO.User {
             e.printStackTrace();
         }
     }
+
+    public static ArrayList<ItemDB> getShoppingCart(int userId) {
+        ArrayList<ItemDB> cartItems = new ArrayList<>();
+
+        try (Connection con = DBManager.getConnection()) {
+            PreparedStatement st = con.prepareStatement(
+                    "SELECT g.game_id, g.title, g.genre, g.price " +
+                            "FROM cart_items ci " +
+                            "JOIN shopping_carts sc ON ci.cart_id = sc.cart_id " +
+                            "JOIN games g ON ci.game_id = g.game_id " +
+                            "WHERE sc.user_id = ?"
+            );
+            st.setInt(1, userId);
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                ItemDB item = new ItemDB(
+                        rs.getInt("game_id"),
+                        rs.getString("title"),
+                        rs.getString("genre"),
+                        rs.getDouble("price")
+                );
+                cartItems.add(item);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return cartItems;
+    }
+
 }
