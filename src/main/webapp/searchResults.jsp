@@ -28,7 +28,7 @@
     }
 %>
 
-<a href="search.jsp">Back to Search</a>
+<a href="items.jsp">Back to Search</a>
 </body>
 </html>
 5

@@ -66,28 +66,28 @@ public class ItemDB extends com.kth.BO.Item {
     public static Collection<Item> searchItemsByName(String search) {
         ArrayList<Item> searchResults = new ArrayList<>();
         String query = "SELECT * FROM games WHERE title LIKE ?";
-        try {
-            Connection con = DBManager.getConnection();
-            PreparedStatement st = con.prepareStatement(query);
-            st.setString(1, "%" + search + "%");
 
-            ResultSet rs = st.executeQuery();
-            while (rs.next()) {
-                int id = rs.getInt("game_id");
-                String title = rs.getString("title");
-                String genre = rs.getString("genre");
-                double price = rs.getDouble("price");
-                Item item = new Item(id, title, genre, price);
-                searchResults.add(item);
+        try (Connection con = DBManager.getConnection();
+             PreparedStatement st = con.prepareStatement(query)) {
+
+            st.setString(1, "%" + search + "%");
+            try (ResultSet rs = st.executeQuery()) {
+                while (rs.next()) {
+                    int id = rs.getInt("game_id");
+                    String title = rs.getString("title");
+                    String genre = rs.getString("genre");
+                    double price = rs.getDouble("price");
+                    searchResults.add(new Item(id, title, genre, price));
+                }
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        for (Item item : searchResults) {
-            System.out.println(searchResults.get(0));
-        }
+
         return searchResults;
     }
+
 
     public static void addToShoppingCart(Item item) {
         String query = "INSERT INTO ";

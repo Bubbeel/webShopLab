@@ -10,7 +10,7 @@ public class ItemInfo {
     private String genre;
     private double price;
 
-    public ItemInfo(String genre, String title, double price) {
+    public ItemInfo(String title, String genre, double price) {
         this.title = title;
         this.genre = genre;
         this .price = price;
@@ -40,4 +40,7 @@ public class ItemInfo {
         this.genre = genre;
     }
 
+    public double getPrice() {
+        return price;
+    }
 }
