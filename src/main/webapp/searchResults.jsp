@@ -15,8 +15,10 @@
         <% for (Item item : results) { %>
             <li>
                 <%= item.getTitle() %> - <%= item.getGenre() %> - $<%= item.getPrice() %>
-                <form action="addToCart" method="post" style="display:inline;">
-                    <input type="hidden" name="id" value="<%= item.getId() %>" />
+
+                <!-- ✅ send title -->
+                <form action="update" method="post" style="display:inline;">
+                    <input type="hidden" name="title" value="<%= item.getTitle() %>" />
                     <button type="submit">Add to Cart</button>
                 </form>
             </li>
@@ -29,3 +31,4 @@
 <a href="search.jsp">Back to Search</a>
 </body>
 </html>
+5

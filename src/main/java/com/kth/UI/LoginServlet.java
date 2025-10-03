@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
 
         if (user != null) {
             //need to fetch game title here somehow
-            user.updateShoppingCart("Baldurs Gate 3");
+            //user.updateShoppingCart("Baldurs Gate 3");
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             response.sendRedirect("items.jsp");
