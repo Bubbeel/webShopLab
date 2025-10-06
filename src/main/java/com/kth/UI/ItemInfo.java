@@ -1,8 +1,6 @@
 package com.kth.UI;
 
 import com.kth.BO.Item;
-import com.kth.DB.ItemDB;
-
 import java.util.Collection;
 
 public class ItemInfo {

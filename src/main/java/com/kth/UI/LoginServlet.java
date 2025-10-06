@@ -1,13 +1,10 @@
 package com.kth.UI;
 
-import com.kth.BO.Item;
 import com.kth.BO.User;
-import com.kth.DB.ItemDB;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import java.io.IOException;
-import java.util.ArrayList;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {

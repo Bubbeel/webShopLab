@@ -17,10 +17,6 @@ public class Item {
         this.price = price;
     }
 
-    public static Collection searchItems(String group) {
-        return ItemDB.searchItems(group);
-    }
-
     public static Collection <Item> getUserShoppingCart(int userId) {
         return ItemDB.getUserShoppingCart(userId);
     }

@@ -12,29 +12,6 @@ public class ItemDB extends com.kth.BO.Item {
         super(id, title, genre, price);
     }
 
-    public static Collection<Item> searchItems() {
-        ArrayList<Item> items = new ArrayList<>();
-        String sql = "SELECT game_id, title, genre, price FROM games";
-
-        try (Connection con = DBManager.getConnection();
-             Statement st = con.createStatement();
-             ResultSet rs = st.executeQuery(sql)) {
-
-            while (rs.next()) {
-                items.add(new ItemDB(
-                        rs.getInt("game_id"),
-                        rs.getString("title"),
-                        rs.getString("genre"),
-                        rs.getDouble("price")
-                ));
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return items;
-    }
-
     public static Collection<Item> getUserShoppingCart(int userId) {
         ArrayList<Item> cart = new ArrayList<>();
         String query = "SELECT g.game_id, g.title, g.genre, g.price, ci.quantity " +
