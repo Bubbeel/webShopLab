@@ -1,13 +1,11 @@
 package com.kth.UI;
 
-import com.kth.BO.Item;
 import com.kth.BO.User;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import java.io.IOException;
-import java.util.Collection;
 
 @WebServlet("/update")
 public class UpdateServlet extends HttpServlet {

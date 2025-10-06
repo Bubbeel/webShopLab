@@ -1,6 +1,5 @@
 package com.kth.DB;
 
-import com.kth.BO.Item;
 import com.kth.BO.User;
 
 import java.sql.*;
